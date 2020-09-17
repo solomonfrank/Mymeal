@@ -126,7 +126,7 @@ class MealDetailPage extends Component {
           <div class="u-center-text">
             <h2 class="heading-secondary u-margin-bottom-big">
               {this.state.meal
-                ? this.state.meal.Name + " " + "collection"
+                ? this.state.meal.Name + " " + "receipe"
                 : "Loading..."}
             </h2>
           </div>
@@ -153,8 +153,8 @@ class MealDetailPage extends Component {
                 <th>Name</th>
                 <th>Price(per unit)</th>
                 <th>Available</th>
-                <th>Count</th>
-                <th>TotalPrice</th>
+                <th>Quantity</th>
+                <th>TotalPrice (per unit * count)</th>
               </tr>
               {this.state.items && this.state.items < 1 && <div>Loading</div>}
               {this.state.items &&
@@ -170,12 +170,12 @@ class MealDetailPage extends Component {
                 ))}
             </table>
 
-            <div class="text-center">
-              <h3>Total: ₦{this.state.totalPrice}</h3>
+            <div class="text-right ">
+              <h3 class="total-cost">Total: ₦{this.state.totalPrice}</h3>
 
               <Link
                 to="#"
-                class="btn-text"
+                class="btn-text checkout"
                 onClick={() => this.payWithPayStack()}
               >
                 Checkout

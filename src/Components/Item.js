@@ -11,6 +11,31 @@ const ItemList = ({ itemProps, key, removeItem, addItem, allState }) => {
     }
   };
 
+  const addButton = () => {
+    if (itemProps.Available) {
+      return (
+        <>
+          <button
+            class="btn btn-primary"
+            data-item={`${itemProps.Name}`}
+            onClick={() => removeItem(`${itemProps.id}`)}
+          >
+            -
+          </button>
+          <span class="count-list">{itemCount(allState, itemProps)}</span>
+          <button
+            class="btn btn-secondary rounded"
+            onClick={(e) => addItem(`${itemProps.id}`)}
+          >
+            +
+          </button>
+        </>
+      );
+    } else {
+      return <button class="btn btn-secondary">Unavailable</button>;
+    }
+  };
+
   const totalPrice = (listCart, item) => {
     const listItem = listCart.carts.find((x) => x.id == item.id);
 
@@ -26,19 +51,7 @@ const ItemList = ({ itemProps, key, removeItem, addItem, allState }) => {
       <td>${itemProps.Price}</td>
       <td>{itemProps.Available ? "Avaible" : "UnAvailable"}</td>
       <td>
-        <div class="count-item">
-          <button
-            class="btn"
-            data-item={`${itemProps.Name}`}
-            onClick={() => removeItem(`${itemProps.id}`)}
-          >
-            -
-          </button>
-          <span>{itemCount(allState, itemProps)}</span>
-          <button class="btn" onClick={(e) => addItem(`${itemProps.id}`)}>
-            +
-          </button>
-        </div>
+        <div class="count-item">{addButton()}</div>
       </td>
       <td>{totalPrice(allState, itemProps)}</td>
     </tr>

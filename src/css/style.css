@@ -302,6 +302,10 @@ body {
   width: 100%;
 }
 
+.meal-wrap {
+  margin-bottom: 3rem;
+}
+
 .image__item {
   width: 100%;
 }
@@ -312,12 +316,14 @@ body {
 
 .item-description {
   font-size: 19px;
+  font-weight: 700;
 }
 
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  font-size: 2rem;
 }
 
 td,
@@ -329,4 +335,18 @@ th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.count-list {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: inline-block;
+
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.total-cost {
+  margin-top: 16px;
+}
+.checkout {
+  font-size: 3rem;
 }
